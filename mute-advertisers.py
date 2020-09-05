@@ -39,6 +39,9 @@ if __name__ == "__main__":
     twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
     for user in users:
         print(f"[*] Muting @{user}")
-        twitter.create_mute(screen_name=user)
+        try:
+            twitter.create_mute(screen_name=user)
+        except Exception as e:
+            print(f"[!] Failed to mute @{user}: {str(e)}")
         time.sleep(5)
 
