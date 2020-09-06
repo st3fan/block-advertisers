@@ -1,4 +1,4 @@
-# Disable Advertisers
+# Mute Advertisers
 _Stefan Arentz, September 2020_
 
 This Python script reads in a `twitter_advertiser_list.pdf`, extracts all the screen names from it and then mutes those. Unclear how effective this is.
