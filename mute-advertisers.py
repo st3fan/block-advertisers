@@ -12,9 +12,9 @@
 #  $ export CONSUMER_SECRET=...
 #  $ export ACCESS_TOKEN=...
 #  $ export ACCESS_TOKEN_SECRET=...
-#  $ ./mute-advertisers.py twitter_advertiser_list.pdf
+#  $ ./block-advertisers.py twitter_advertiser_list.pdf
 #
-# See https://github.com/st3fan/mute-advertisers
+# See https://github.com/st3fan/block-advertisers
 #
 
 
@@ -38,10 +38,10 @@ if __name__ == "__main__":
 
     twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
     for user in users:
-        print(f"[*] Muting @{user}")
+        print(f"[*] Blocking @{user}")
         try:
-            twitter.create_mute(screen_name=user)
+            twitter.create_block(screen_name=user, include_entities=False, skip_status=True)
         except Exception as e:
-            print(f"[!] Failed to mute @{user}: {str(e)}")
+            print(f"[!] Failed to block @{user}: {str(e)}")
         time.sleep(5)
 
